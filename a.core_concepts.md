@@ -188,6 +188,8 @@ kubectl run nginx --image=nginx --restart=Never --port=80
 
 *Note*: The `RESTARTS` column should contain 0 initially (ideally - it could be any number)
 
+*注*： `RESTARTS`列には最初は0が含まれている必要があります（理想的には-任意の数にすることができます）
+
 ```bash
 # kubectl set image POD/POD_NAME CONTAINER_NAME=IMAGE_NAME:TAG
 kubectl set image pod/nginx nginx=nginx:1.7.1
@@ -196,6 +198,8 @@ kubectl get po nginx -w # watch it
 ```
 
 *Note*: some time after changing the image, you should see that the value in the `RESTARTS` column has been increased by 1, because the container has been restarted, as stated in the events shown at the bottom of the `kubectl describe pod` command:
+
+*注*：イメージを変更した後しばらくすると、 `kubectl describeの下部に表示されるイベントに示されているように、コンテナーが再起動されたため、` RESTARTS`列の値が1増加したことがわかります。 pod`コマンド：
 
 ```
 Events:
@@ -210,6 +214,8 @@ Events:
 ```
 
 *Note*: you can check pod's image by running
+
+*注*：実行するとポッドの画像を確認できます
 
 ```bash
 kubectl get po nginx -o jsonpath='{.spec.containers[].image}{"\n"}'
